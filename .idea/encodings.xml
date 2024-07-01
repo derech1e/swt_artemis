@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24auction/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24auction/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24bank/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24bank/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24enterprise/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24enterprise/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24event/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24event/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24matrix/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24matrix/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1bpss24search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collection3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collection3/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collections1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collections1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collections2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24collections2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24func/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24func/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24generics/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24generics/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24inheritance/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24inheritance/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24leetspeek/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24leetspeek/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24library/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24library/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24linkedlist/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24linkedlist/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24taxi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st1ss24taxi/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
