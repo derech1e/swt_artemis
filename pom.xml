@@ -15,9 +15,9 @@
         <module>st1bpss24event</module>
         <module>st1bpss24matrix</module>
         <module>st1bpss24search</module>
-        <module>st1ss24collection3</module>
         <module>st1ss24collections1</module>
         <module>st1ss24collections2</module>
+        <module>st1ss24collection3</module>
         <module>st1ss24func</module>
         <module>st1ss24generics</module>
         <module>st1ss24inheritance</module>
