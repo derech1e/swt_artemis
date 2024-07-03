@@ -25,6 +25,7 @@
         <module>st1ss24library</module>
         <module>st1ss24linkedlist</module>
         <module>st1ss24taxi</module>
+        <module>st1bpss24parts</module>
     </modules>
 
     <build>
