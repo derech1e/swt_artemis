@@ -1,2 +1,4 @@
-public class DiscountType {
+public enum DiscountType {
+    PERCENTAGEDISCOUNT,
+    ABSOLUTEDISCOUNT,
 }
