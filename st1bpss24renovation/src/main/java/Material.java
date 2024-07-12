@@ -21,6 +21,6 @@ public abstract class Material {
 
     public double getPriceOfASurface(Surface surface) {
         if(surface == null) throw new NullPointerException();
-        return surface.getPrice() + price; // TODO
+        return getPricePerUnit() * getMaterialRequirements(surface);
     }
 }

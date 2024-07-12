@@ -13,8 +13,9 @@ public class Flooring extends Material {
         return this.widthOfFlooring;
     }
 
+    @Override
     public int getMaterialRequirements(Surface surface) {
         if(surface == null) throw new NullPointerException();
-        return -1; // TODO
+        return (int) (Math.floor(surface.getArea() / getWidth() - limit) + 1);
     }
 }

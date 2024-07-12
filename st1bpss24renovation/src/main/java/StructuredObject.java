@@ -1,14 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StructuredObject extends RenovationObject {
 
-    private List<RenovationObject> parts = new ArrayList<>();
+    private Set<RenovationObject> parts;
 
 
     public StructuredObject() {
-
+        parts = new HashSet<>();
     }
 
     public void add(RenovationObject renovationObject) {
@@ -18,11 +16,21 @@ public class StructuredObject extends RenovationObject {
 
     @Override
     public double getPrice() {
-        return 0;
+        double price = 0D;
+        for (RenovationObject renovationObject : parts) {
+            price += renovationObject.getPrice();
+        }
+        return price;
     }
 
+    @Override
     public Map<String, Integer> addMaterialRequirements(Map<String, Integer> materials) {
         if(materials == null) throw new NullPointerException();
-        return null;
+        Map<String, Integer> updatedMaterials = new HashMap<>(materials);
+        if(updatedMaterials.containsKey(null) || updatedMaterials.containsValue(null)) throw new NullPointerException();
+        for (RenovationObject renovationObject : parts) {
+            updatedMaterials = renovationObject.addMaterialRequirements(updatedMaterials);
+        }
+        return updatedMaterials;
     }
 }

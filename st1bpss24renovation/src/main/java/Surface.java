@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Surface extends RenovationObject {
@@ -31,12 +32,20 @@ public class Surface extends RenovationObject {
 
     @Override
     public double getPrice() {
-        return 0;
+        return selectedMaterial.getPriceOfASurface(this);
     }
 
     @Override
     public Map<String, Integer> addMaterialRequirements(Map<String, Integer> materials) {
         if(materials == null || selectedMaterial == null) throw new NullPointerException();
-        return null;
+
+        Map<String, Integer> updatedMaterials = new HashMap<>(materials);
+        if(updatedMaterials.containsKey(null) || updatedMaterials.containsValue(null)) throw new NullPointerException();
+
+        int newMaterialCount = materials.getOrDefault(selectedMaterial.getName(), 0) + selectedMaterial.getMaterialRequirements(this);
+        updatedMaterials.put(selectedMaterial.getName(), newMaterialCount);
+
+        return updatedMaterials;
+
     }
 }

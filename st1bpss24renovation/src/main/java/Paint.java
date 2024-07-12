@@ -5,7 +5,7 @@ public class Paint extends Material {
 
     public Paint(String name, double price, int numberOfCoats, double squareMetersPerLiter) {
         super(name, price);
-        if(numberOfCoats < 0 || squareMetersPerLiter < 0) throw new IllegalArgumentException();
+        if(numberOfCoats <= 0 || squareMetersPerLiter <= 0) throw new IllegalArgumentException();
         this.numberOfCoats = numberOfCoats;
         this.squareMetersPerLiter = squareMetersPerLiter;
     }
@@ -21,6 +21,7 @@ public class Paint extends Material {
     @Override
     public int getMaterialRequirements(Surface surface) {
         if(surface == null) throw new NullPointerException();
-        return 0;
+        double cost = surface.getArea() * getNumberOfCoats() / getSquareMetersPerLiter() - limit;
+        return (int) (Math.floor(2 * cost) + 1);
     }
 }
