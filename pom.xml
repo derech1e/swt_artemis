@@ -29,6 +29,7 @@
         <module>st1bpss24payroll</module>
         <module>st1bpss24pricing</module>
         <module>st1bpss24renovation</module>
+        <module>st1bpss24vehicle</module>
     </modules>
 
     <build>
