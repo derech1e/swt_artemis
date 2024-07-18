@@ -10,7 +10,7 @@ public class VehicleQueue implements ClockObserver {
     private List<Vehicle> queue = new ArrayList<>();
     private double lastEntryTime = 0; // Last time a vehicle entered
     private double lastExitTime = 0; // Last time a vehicle exited
-    private boolean prevGreenLight = false;
+    private boolean prevState = false;
 
     public VehicleQueue(double entryDelay, double exitDelay, int trafficLightRate, VehicleGenerator generator) {
         if (entryDelay <= 0 || exitDelay <= 0 || trafficLightRate <= 0) throw new IllegalArgumentException();
@@ -45,35 +45,31 @@ public class VehicleQueue implements ClockObserver {
 
     @Override
     public void tick(int currentTime) {
-        int phaseIndex = (currentTime / trafficLightRate); // Determine current phase index
+        greenLight = (currentTime / trafficLightRate) % 2 == 1;
 
-        // Determine if it's a green light phase
-        greenLight = phaseIndex % 2 == 1;
-        System.out.println(greenLight);
-
-        if(greenLight) {
-            lastExitTime -= exitDelay;
+        if(!prevState && greenLight) {
+            prevState = true;
+            lastExitTime = currentTime;
         }
-
-        if (currentTime >= lastEntryTime + entryDelay) {
-            if(lastEntryTime >= 0) {
-                enter();
-            }
-            System.out.println("Vehicle entered at time: " + currentTime);
+        if(!greenLight && prevState) {
+            prevState = false;
             lastEntryTime = currentTime;
         }
 
-        if (greenLight && currentTime >= lastExitTime + exitDelay) {
-            if(lastExitTime > 0) {
-                leave();
-            }
-            System.out.println("Vehicle left at time: " + currentTime);
-            lastExitTime = currentTime;
+        System.out.println(String.format("TrafficLightTime: %s, EntryDelay: %s, ExitDelay: %s, Amount: %s, CurrentTime: %s", trafficLightRate, entryDelay, exitDelay, getSize(), currentTime));
+
+        while (lastEntryTime + entryDelay <= currentTime) {
+            enter();
+            lastEntryTime += entryDelay;
+            System.out.println("Current entry time: " + lastEntryTime);
         }
-        prevGreenLight = greenLight;
-        System.out.println("Current queue size at time " + currentTime + ": " + getSize());
+
+        if(greenLight) {
+            while (lastExitTime + exitDelay <= currentTime) {
+                leave();
+                lastExitTime += exitDelay;
+                System.out.println("Current exit time: " + lastExitTime);
+            }
+        }
     }
-
-
-
 }
