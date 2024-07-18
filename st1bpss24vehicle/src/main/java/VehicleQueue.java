@@ -32,11 +32,11 @@ public class VehicleQueue implements ClockObserver {
     }
 
     public double getLength() {
-        double length = 0;
-        for (Vehicle item : queue) {
-            length += item.getLength();
-        }
-        return length;
+//        double length = 0;
+//        for (Vehicle item : queue) {
+//            length += item.getLength();
+//        }
+        return queue.stream().mapToDouble(Vehicle::getLength).sum();
     }
 
     public int getSize() {
@@ -54,6 +54,7 @@ public class VehicleQueue implements ClockObserver {
         if(!greenLight && prevState) {
             prevState = false;
             lastEntryTime = currentTime;
+            // TODO: Fails at no. 21 of test data set no. 2
         }
 
         System.out.println(String.format("TrafficLightTime: %s, EntryDelay: %s, ExitDelay: %s, Amount: %s, CurrentTime: %s", trafficLightRate, entryDelay, exitDelay, getSize(), currentTime));
