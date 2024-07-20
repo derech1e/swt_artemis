@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>st1ss24collection3</artifactId>
+    <artifactId>st1ss24collections3</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
