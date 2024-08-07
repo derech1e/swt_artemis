@@ -34,6 +34,7 @@
         <module>st1bpss24coolideas</module>
         <module>st1bpss24predicate</module>
         <module>st1bpss24project</module>
+        <module>playground</module>
     </modules>
 
     <build>
