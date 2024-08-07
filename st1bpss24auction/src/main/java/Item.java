@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Item {
+public class Item implements InterfaceExample {
     private String name;
     private String description;
     private long minPrice;
@@ -54,5 +54,10 @@ public class Item {
     @Override
     public String toString() {
         return String.format("%s: %s (minimum bidding price: %s EUR)", this.name, this.description, this.minPrice);
+    }
+
+    @Override
+    public void method() {
+
     }
 }

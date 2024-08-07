@@ -31,6 +31,7 @@
         <module>st1bpss24renovation</module>
         <module>st1bpss24vehicle</module>
         <module>st1ss24garagedoor</module>
+        <module>st1bpss24coolideas</module>
     </modules>
 
     <build>
