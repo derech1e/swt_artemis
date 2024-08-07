@@ -14,6 +14,6 @@ public class JTopic extends JContent {
 
     @Override
     public String toString() {
-        return String.format("The topic %s has been updated!", id);
+        return String.format("Topic: %s\n%s", getTitle(), getDescription());
     }
 }

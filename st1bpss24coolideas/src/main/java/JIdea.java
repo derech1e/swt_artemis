@@ -38,7 +38,7 @@ public class JIdea extends JContent {
     }
 
     public boolean isReleased() {
-        return this.state instanceof ReleaseIdea;
+        return this.state instanceof ReleasedIdea;
     }
 
     public String getCurrentDiscussion() {
@@ -67,17 +67,23 @@ public class JIdea extends JContent {
         return String.format("Idea: %s\n%s", this.getTitle(), this.getDescription());
     }
 
+    /**
+     *
+     * <h1>STATE PATTERN</h1>
+     *
+     */
+
     abstract class JState {
 
         private String currentDiscussion;
         private JValuation valuation;
 
         public void discuss(String text) {
-            throw new IllegalStateException();
+//            throw new IllegalStateException();
         }
 
         public void evaluate(JValuation valuation) {
-            throw new IllegalStateException();
+//            throw new IllegalStateException();
         }
 
         public void hold() {
@@ -86,12 +92,12 @@ public class JIdea extends JContent {
 
 
         public void release() {
-            throw new IllegalStateException();
+//            throw new IllegalStateException();
         }
 
 
         public void decline() {
-            throw new IllegalStateException();
+//            throw new IllegalStateException();
         }
 
 
@@ -160,8 +166,7 @@ public class JIdea extends JContent {
         }
     }
 
-    private class ReleaseIdea extends JState {
-
+    private class ReleasedIdea extends JState {
     }
 
     private class DeclinedIdea extends JState {

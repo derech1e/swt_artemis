@@ -22,6 +22,9 @@ public abstract class JContent {
         if (description == null) throw new NullPointerException();
         if (description.isEmpty()) throw new IllegalArgumentException();
         this.description = description;
+        for (ContentObserver observer : observers) {
+            observer.update(this);
+        }
     }
 
     public String getTitle() {
@@ -32,6 +35,9 @@ public abstract class JContent {
         if (title == null) throw new NullPointerException();
         if (title.isEmpty()) throw new IllegalArgumentException();
         this.title = title;
+        for (ContentObserver observer : observers) {
+            observer.update(this);
+        }
     }
 
     public void addObserver(ContentObserver observer) {
