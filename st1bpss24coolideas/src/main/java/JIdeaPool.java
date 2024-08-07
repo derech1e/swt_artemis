@@ -59,12 +59,12 @@ public class JIdeaPool {
     public boolean remove(JIdea idea) {
         if (idea == null) throw new NullPointerException();
         boolean result = false;
-        for (Map.Entry<JTopic, Set<JIdea>> item : pool.entrySet()) {
-            for (JIdea j : item.getValue()) {
-                if (j.equals(idea)) {
-                    item.getValue().remove(idea);
-                    result = true;
-                }
+        for (JTopic item : pool.keySet()) {
+            Set<JIdea> ideas = pool.get(item);
+            if(ideas.contains(idea)) {
+                ideas.remove(idea);
+                pool.replace(item, ideas);
+                result = true;
             }
         }
         return result;
