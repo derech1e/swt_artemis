@@ -6,6 +6,6 @@ public class JValuation extends JContent {
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("Valuation: %s\n%s", this.getTitle(), this.getDescription());
     }
 }

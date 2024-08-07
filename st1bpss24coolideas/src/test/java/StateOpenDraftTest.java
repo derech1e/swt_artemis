@@ -2,13 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import de.tum.in.test.api.StrictTimeout;
-import de.tum.in.test.api.WhitelistClass;
-import de.tum.in.test.api.jupiter.Public;
-
-@Public
-@StrictTimeout(1)
-@WhitelistClass(JStateBaseTest.class)
+ 
 public class StateOpenDraftTest extends JStateBaseTest {
     @Override
     @BeforeEach

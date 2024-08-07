@@ -17,7 +17,7 @@ public class JMember implements ContentObserver {
 
     @Override
     public void update(JContent content) {
-
+        System.out.println(content.toString());
     }
 
     public Set<JTopic> getSubscribedTopics() {

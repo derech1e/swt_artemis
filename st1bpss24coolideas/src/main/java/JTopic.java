@@ -4,7 +4,7 @@ public class JTopic extends JContent {
 
     public JTopic(String title, String description, int id) {
         super(title, description);
-        if(id < 0) throw new IllegalArgumentException();
+        if (id <= 0) throw new IllegalArgumentException();
         this.id = id;
     }
 
@@ -14,6 +14,6 @@ public class JTopic extends JContent {
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("The topic %s has been updated!", id);
     }
 }

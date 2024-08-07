@@ -1,15 +1,15 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class JContent {
+public abstract class JContent {
     private String title;
     private String description;
 
     private Set<ContentObserver> observers = new HashSet<ContentObserver>();
 
     public JContent(String title, String description) {
-        if(title == null || description == null) throw new NullPointerException();
-        if(title.isEmpty() || description.isEmpty()) throw new IllegalArgumentException();
+        if (title == null || description == null) throw new NullPointerException();
+        if (title.isEmpty() || description.isEmpty()) throw new IllegalArgumentException();
         this.title = title;
         this.description = description;
     }
@@ -19,8 +19,8 @@ public class JContent {
     }
 
     public void setDescription(String description) {
-        if(description == null) throw new NullPointerException();
-        if(description.isEmpty()) throw new IllegalArgumentException();
+        if (description == null) throw new NullPointerException();
+        if (description.isEmpty()) throw new IllegalArgumentException();
         this.description = description;
     }
 
@@ -29,19 +29,21 @@ public class JContent {
     }
 
     public void setTitle(String title) {
-        if(title == null) throw new NullPointerException();
-        if(title.isEmpty()) throw new IllegalArgumentException();
+        if (title == null) throw new NullPointerException();
+        if (title.isEmpty()) throw new IllegalArgumentException();
         this.title = title;
     }
 
     public void addObserver(ContentObserver observer) {
-        if(observer == null) throw new NullPointerException();
+        if (observer == null) throw new NullPointerException();
         this.observers.add(observer);
+        observer.update(this);
     }
 
     public void removeObserver(ContentObserver observer) {
-        if(observer == null) throw new NullPointerException();
+        if (observer == null) throw new NullPointerException();
         this.observers.remove(observer);
+        observer.update(this);
     }
 
     public int countObservers() {
@@ -49,7 +51,5 @@ public class JContent {
     }
 
     @Override
-    public String toString() {
-        return this.title + " " + this.description; // TODO
-    }
+    public abstract String toString();
 }
