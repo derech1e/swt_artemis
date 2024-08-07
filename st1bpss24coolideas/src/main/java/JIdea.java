@@ -59,6 +59,7 @@ public class JIdea extends JContent {
     }
 
     public boolean removeAttachment(JAttachment attachment) {
+        if (attachment == null) throw new NullPointerException();
         return this.attachments.remove(attachment);
     }
 
@@ -68,9 +69,7 @@ public class JIdea extends JContent {
     }
 
     /**
-     *
      * <h1>STATE PATTERN</h1>
-     *
      */
 
     abstract class JState {
@@ -79,11 +78,11 @@ public class JIdea extends JContent {
         private JValuation valuation;
 
         public void discuss(String text) {
-//            throw new IllegalStateException();
+            throw new IllegalStateException();
         }
 
         public void evaluate(JValuation valuation) {
-//            throw new IllegalStateException();
+            throw new IllegalStateException();
         }
 
         public void hold() {
@@ -92,12 +91,12 @@ public class JIdea extends JContent {
 
 
         public void release() {
-//            throw new IllegalStateException();
+            throw new IllegalStateException();
         }
 
 
         public void decline() {
-//            throw new IllegalStateException();
+            throw new IllegalStateException();
         }
 
 
@@ -119,8 +118,6 @@ public class JIdea extends JContent {
             if (valuation == null) throw new NullPointerException();
             this.valuation = valuation;
         }
-
-
     }
 
     private class Draft extends JState {
@@ -138,18 +135,18 @@ public class JIdea extends JContent {
     private class OpenDraft extends JState {
         @Override
         public void discuss(String text) {
-            this.setCurrentDiscussion(getCurrentDiscussion() + "\n" + text);
-            super.discuss(text);
+            String currentDiscussion = state.getCurrentDiscussion();
+            state.setCurrentDiscussion(currentDiscussion == null ? text + "\n" : currentDiscussion + text + "\n");
         }
 
         @Override
         public void evaluate(JValuation valuation) {
-            this.setValuation(valuation);
+            state.setValuation(valuation);
         }
 
         @Override
         public void hold() {
-            state = new Draft();
+            state = new ApprovedIdea();
         }
 
         @Override
@@ -161,8 +158,7 @@ public class JIdea extends JContent {
     private class ApprovedIdea extends JState {
         @Override
         public void release() {
-            state = new ApprovedIdea();
-            super.release();
+            state = new ReleasedIdea();
         }
     }
 

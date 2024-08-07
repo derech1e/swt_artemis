@@ -43,13 +43,11 @@ public abstract class JContent {
     public void addObserver(ContentObserver observer) {
         if (observer == null) throw new NullPointerException();
         this.observers.add(observer);
-        observer.update(this);
     }
 
     public void removeObserver(ContentObserver observer) {
         if (observer == null) throw new NullPointerException();
         this.observers.remove(observer);
-        observer.update(this);
     }
 
     public int countObservers() {

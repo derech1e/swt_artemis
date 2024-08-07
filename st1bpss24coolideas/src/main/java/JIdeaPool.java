@@ -12,21 +12,43 @@ public class JIdeaPool {
     }
 
     public JIdea getIdea(String title) {
+        if (title == null) throw new NullPointerException();
+        if (title.isEmpty()) throw new IllegalArgumentException();
+        JIdea idea = null;
         for (Map.Entry<JTopic, Set<JIdea>> entry : pool.entrySet())
             for (JIdea item : entry.getValue())
                 if (item.getTitle().equals(title))
-                    return item;
-        return null;
+                    idea = item;
+        return idea;
     }
 
     public void add(JTopic topic) {
         if (topic == null) throw new NullPointerException();
-        pool.put(topic, new HashSet<>());
+        if (!pool.containsKey(topic))
+            pool.put(topic, new HashSet<>());
     }
 
     public void add(JIdea idea, JTopic topic) {
         if (topic == null || idea == null) throw new NullPointerException();
-        pool.getOrDefault(topic, new HashSet<>()).add(idea);
+
+        Set<JIdea> allIdeas = new HashSet<>();
+        for (Set<JIdea> items : pool.values()) {
+            allIdeas.addAll(items);
+        }
+        for (JIdea i : allIdeas) {
+            if (i.getTitle().equals(idea.getTitle()) && (i != idea))
+                return;
+        }
+
+        if (pool.containsKey(topic)) {
+            Set<JIdea> set = pool.get(topic);
+            set.add(idea);
+            pool.replace(topic, set);
+            return;
+        }
+        Set<JIdea> set = new HashSet<>();
+        set.add(idea);
+        pool.put(topic, set);
     }
 
     public boolean remove(JTopic topic) {
