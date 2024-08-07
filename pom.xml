@@ -33,6 +33,7 @@
         <module>st1ss24garagedoor</module>
         <module>st1bpss24coolideas</module>
         <module>st1bpss24predicate</module>
+        <module>st1bpss24project</module>
     </modules>
 
     <build>
